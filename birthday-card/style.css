@@ -1,0 +1,105 @@
+.open-button {
+	color: white;
+	background: #E91E63;
+	border: #F06292 0.1em solid;
+	border-radius: 50%;
+	font-size: 3em;
+	animation: pulse 1s infinite;
+	cursor: pointer;
+
+	position: absolute;
+	width: 2em;
+	line-height: 1.8em;
+	top: -1.5em;
+	left: -1em;
+}
+.open-button:focus {
+	outline: none;
+	border-color: #F8BBD0
+}
+.envelope.open .open-button {
+	animation-play-state: paused;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.envelope {
+	background: #d77e35;
+
+	margin-top: 14em;
+	position: relative;
+	width: 30em;
+	height: 18em;
+}
+.envelope-flap {
+	border: transparent 0 solid;
+	border-style: solid;
+
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 0;
+}
+.inside-flap-left {
+	border-width: 9em 0 9em 12em;
+	border-color: transparent transparent transparent #ecc460;
+}
+.inside-flap-right {
+	border-width: 9em 12em 9em 0;
+	border-color: transparent #ecc460 transparent transparent;
+
+	right: 0;
+	left: auto;
+}
+.front-flap {
+	border-width: 12em 15em 0 15em;
+	border-color: #f9e1a7 transparent transparent transparent;
+	transition: transform 0.2s ease;
+	transform-origin: top center;
+}
+.back-flap {
+	border-width: 0 12em 9em 12em;
+	border-color: transparent transparent #f7d98f transparent;
+
+	width: 6em;
+	bottom: 0;
+}
+
+.envelope.open .envelope-flap {
+	z-index: 3;
+}
+.envelope.open .front-flap	 {
+	transform: rotateX(180deg);
+	z-index: 1;
+}
+
+.card-flyout {
+	background: #eee;
+	z-index: 0;
+	transition: z-index 0.3s step-start, transform 0s ease-in 0.2s;
+
+	position: absolute;
+	width: 25em;
+	height: 14em;
+	left: 2.5em;
+	top: 1em;
+}
+
+.envelope.open .card-flyout {
+	transform: translateY(-30em);
+	z-index: 2;
+	transition: z-index 0.3s step-end, transform 1s ease-in 0.5s;
+}

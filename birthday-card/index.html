@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<div id="envelope" class="envelope">
+		<div class="card-flyout"></div>
+		<div class="envelope-flap inside-flap-left"></div>
+		<div class="envelope-flap inside-flap-right"></div>
+		<div class="envelope-flap back-flap"></div>
+		<div class="envelope-flap front-flap">
+			<button id="openButton" class="open-button">❤</button>
+		</div>
+	</div>
+</body>
+<script>
+	const envelope = document.getElementById('envelope');
+	document.getElementById('openButton').onclick = () =>
+		envelope.classList.toggle('open')
+</script>
+</html>
